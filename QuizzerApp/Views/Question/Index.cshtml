@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Wellcome";
+}
+
+<div class="container">
+    <h2>Test your Knowledge</h2>
+    <p>This is a multiple choice quiz to test your knowledge of things</p>
+    <ul>
+        <li><strong>Number of Questions: </strong>@ViewBag.totleQuestion</li>
+        <li><strong>Type:  </strong>Mulitple Choice</li>
+        <li><strong>Estimated Time:  </strong>@ViewBag.totleQuestion*0.5 minutes</li>
+    </ul>
+    @Html.ActionLink("Take a Quiz", "Question",
+    new {Id=1 },
+    new {@class= "start" })
+    @*<a href="question.php?n=1" class="start">Take A Quiz</a>*@ <br> <br>
+    <a href="add" class="start">Add a question</a>
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model QuizzerApp.Models.Question
+
+@{
+    ViewBag.Title = "Question";
+}
+
+<main>
+    <div class="container">
+        <div class="current">Question @Model.QuestionId of @ViewBag.totleQuestion</div>
+        <p class="question">
+            <!-- This part displays the question-->
+            <!-- Its important to add the text array to grab the text from the database -->
+            @Model.Text
+        </p>
+        @using (Html.BeginForm())
+            {
+            <ul class="choices">
+                <!-- This part displays the choices-->
+                @{
+
+                    foreach (var c in ViewBag.choices)
+                    {
+                        
+                        
+                        <li><input name="choice" type="radio" value="@c.Id">@c.value </li>
+                        }
+                }
+                
+               
+
+            </ul>
+            <input type="hidden" name="QuestioNumber" value="@Model.QuestionId" />
+            <input type="submit" value="Submit" />
+            
+            }
+        
+    </div>
+</main>
